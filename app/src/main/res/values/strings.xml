@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GaleriaDeArte</string>
+    <string name="foto1">Obra Monalisa, feita em 1893 pelo artista italiano Leonardo da Vinci</string>
+    <string name="foto2">Obra O Grito, feita em 1893 pelo artista norueguês Edvard Munch</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+</resources>
