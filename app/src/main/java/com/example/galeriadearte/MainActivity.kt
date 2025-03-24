@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.BlurEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -28,6 +29,10 @@ import com.example.galeriadearte.ui.theme.GaleriaDeArteTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //override fun: sobrescreve a função e o onCreate: função de entrada que chama outras funções e serve para configurar o layout e inicializar componentes.
+        //savedInstanceState: Bundle?: Ele é usado para salvar e restaurar o estado da atividade quando, por exemplo, o usuário gira a tela ou o app é fechado e reaberto.
+        //Se a atividade estiver sendo criada pela primeira vez, esse valor será null.
+        //Se a atividade estiver sendo recriada (por exemplo, após uma rotação de tela), ele contém dados salvos da última execução.
         setContent {
             GaleriaDeArteTheme{
                 GaleriaApp()
@@ -48,15 +53,21 @@ fun GaleriaApp(){
                     .padding(20.dp)
 
             ) {
-                Image(
-                    painter = painterResource(R.drawable.foto1), // Carrega a imagem.
-                    contentDescription = stringResource(R.string.foto1), // Texto alternativo
+                Box (
                     modifier = Modifier
-                        .wrapContentSize()
-                        .background(color = Color.White)
-                        .padding(horizontal = 40.dp)
-                        .padding(vertical = 40.dp)
-                )
+                        .shadow(10.dp)
+                ){
+                    Image(
+                        painter = painterResource(R.drawable.foto1), // Carrega a imagem.
+                        contentDescription = stringResource(R.string.foto1), // Texto alternativo
+                        modifier = Modifier
+                            .wrapContentSize()
+                            .background(color = Color.White)
+                            .padding(horizontal = 40.dp)
+                            .padding(vertical = 40.dp)
+                            .shadow(10.dp)
+                    )
+                }
                 Spacer(modifier = Modifier.height(150.dp))
                 Text(text = stringResource(R.string.foto1),
                     fontSize = 15.sp,
@@ -70,7 +81,10 @@ fun GaleriaApp(){
                     Text(text = stringResource(R.string.previous),
                         fontSize = 20.sp,
                         modifier = Modifier
-                            .background(color = Color(65, 95, 171), shape = RoundedCornerShape(10.dp))
+                            .background(
+                                color = Color(65, 95, 171),
+                                shape = RoundedCornerShape(10.dp)
+                            )
                             .clickable { fotodeagora = 1 }
                             .padding(30.dp, 10.dp)
                     )
@@ -78,9 +92,12 @@ fun GaleriaApp(){
                     Text(text = stringResource(R.string.next),
                         fontSize = 20.sp,
                         modifier = Modifier
-                            .background(color = Color(65, 95, 171), shape = RoundedCornerShape(10.dp))
+                            .background(
+                                color = Color(65, 95, 171),
+                                shape = RoundedCornerShape(10.dp)
+                            )
                             .clickable { fotodeagora = 2 }
-                            .padding(30.dp ,10.dp)
+                            .padding(30.dp, 10.dp)
                     )
                 }
             }
@@ -94,39 +111,50 @@ fun GaleriaApp(){
                     .padding(20.dp)
 
             ) {
-                Image(
-                    painter = painterResource(R.drawable.foto1), // Carrega a imagem.
-                    contentDescription = stringResource(R.string.foto2), // Texto alternativo
+                Box(
                     modifier = Modifier
-                        .wrapContentSize()
-                        .background(color = Color.White)
-                        .padding(horizontal = 40.dp)
-                        .padding(vertical = 40.dp)
-                )
+                        .shadow(10.dp)
+                ) {
+                    Image(
+                        painter = painterResource(R.drawable.foto2), // Carrega a imagem.
+                        contentDescription = stringResource(R.string.foto2), // Texto alternativo
+                        modifier = Modifier
+                            .wrapContentSize()
+                            .background(color = Color.White)
+                            .padding(horizontal = 40.dp)
+                            .padding(vertical = 40.dp)
+                    )
+                }
                 Spacer(modifier = Modifier.height(150.dp))
                 Text(text = stringResource(R.string.foto2),
                     fontSize = 15.sp,
                     modifier = Modifier
                         .width(300.dp)
                         .background(color = Color(0xFFB7D6DC))
-                        .padding(10.dp)
+                        .padding(30.dp, 10.dp)
                 )
                 Spacer(modifier = Modifier.height(100.dp))
                 Row {
                     Text(text = stringResource(R.string.previous),
                         fontSize = 20.sp,
                         modifier = Modifier
-                            .background(color = Color(65, 95, 171), shape = RoundedCornerShape(10.dp))
+                            .background(
+                                color = Color(65, 95, 171),
+                                shape = RoundedCornerShape(10.dp)
+                            )
                             .clickable { fotodeagora = 1 }
-                            .padding(10.dp)
+                            .padding(30.dp, 10.dp)
                     )
                     Spacer(modifier = Modifier.width(100.dp))
                     Text(text = stringResource(R.string.next),
                         fontSize = 20.sp,
                         modifier = Modifier
-                            .background(color = Color(65, 95, 171), shape = RoundedCornerShape(10.dp))
+                            .background(
+                                color = Color(65, 95, 171),
+                                shape = RoundedCornerShape(10.dp)
+                            )
                             .clickable { fotodeagora = 2 }
-                            .padding(10.dp)
+                            .padding(30.dp, 10.dp)
                     )
                 }
             }
